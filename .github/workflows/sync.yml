@@ -20,8 +20,9 @@ jobs:
 
       - name: Commit changes
         run: |
-          git diff --quiet && exit 0
+          git add Formula
+          git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Sync formulas with latest releases"
+          git commit -m "Sync formulas with latest releases"
           git push
